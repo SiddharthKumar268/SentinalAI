@@ -1,0 +1,57 @@
+{
+  "mcpServers": {
+    "sentinel-cognitive-profiler": {
+      "command": "python",
+      "args": ["mcp-servers/cognitive-profiler/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      },
+      "description": "Cognitive Load Profiler — Assesses driver cognitive/emotional state before trips via AI-driven conversation"
+    },
+    "sentinel-route-risk": {
+      "command": "python",
+      "args": ["mcp-servers/route-risk/server.py"],
+      "env": {
+        "OPENWEATHERMAP_API_KEY": "${OPENWEATHERMAP_API_KEY}",
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      },
+      "description": "Route Risk Scorer — Analyses planned routes and assigns per-segment risk scores using OSM, weather, and NCRB data"
+    },
+    "sentinel-crash-recorder": {
+      "command": "python",
+      "args": ["mcp-servers/crash-recorder/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}",
+        "OPENWEATHERMAP_API_KEY": "${OPENWEATHERMAP_API_KEY}"
+      },
+      "description": "Crash Context Recorder — Captures and documents incident context with cryptographic timestamping"
+    },
+    "sentinel-witness-ai": {
+      "command": "python",
+      "args": ["mcp-servers/witness-ai/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      },
+      "description": "Witness Statement AI — Processes raw witness accounts into legally structured statements"
+    },
+    "sentinel-legal-doc": {
+      "command": "python",
+      "args": ["mcp-servers/legal-doc/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      },
+      "description": "Legal Document AI — Generates FIR drafts, insurance claim letters, and rights explainers"
+    },
+    "sentinel-recovery-coach": {
+      "command": "python",
+      "args": ["mcp-servers/recovery-coach/server.py"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "SUPABASE_URL": "${SUPABASE_URL}",
+        "SUPABASE_ANON_KEY": "${SUPABASE_ANON_KEY}"
+      },
+      "description": "Psychological Recovery Coach — 30-day post-accident check-in program with PHQ-9/PCL-5 screening"
+    }
+  }
+}

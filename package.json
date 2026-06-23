@@ -1,0 +1,26 @@
+{
+  "name": "sentinelai",
+  "version": "1.0.0",
+  "description": "A Full-Lifecycle Automotive Intelligence Platform — MCP Servers",
+  "author": "SentinelAI Team",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start:cognitive": "node mcp-servers/cognitive-profiler/server.mjs",
+    "start:route-risk": "python mcp-servers/route-risk/server.py",
+    "start:crash": "python mcp-servers/crash-recorder/server.py",
+    "start:witness": "python mcp-servers/witness-ai/server.py",
+    "start:legal": "python mcp-servers/legal-doc/server.py",
+    "start:recovery": "python mcp-servers/recovery-coach/server.py",
+    "start:all": "concurrently \"npm run start:cognitive\" \"npm run start:route-risk\" \"npm run start:crash\" \"npm run start:witness\" \"npm run start:legal\" \"npm run start:recovery\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.4.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
